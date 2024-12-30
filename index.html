@@ -27,7 +27,7 @@ chat='true'>
             <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
 
             
-            <input type="submit" onclick="identify_call()">
+            <input type="submit">
         </form>
         <p id="thankYouMessage" style="display: none;">Thanks for submitting the form!</p>
     </div>
@@ -39,20 +39,22 @@ chat='true'>
             document.getElementById('thankYouMessage').style.display = 'block';
         }
        
-         function identify_call() {
+         // function identify_call() {
 		
-            var new_contact = {
-                "First name": document.getElementById("firstName").value,
-                "Email": document.getElementById("email").value,
-                "Mobile": document.getElementById("phoneNumber").value,
-                // "company": {	
-                //     "Name": document.getElementById("companyName").value
-                // }
-            };
-            var identifier = document.getElementById("email").value; 
+         //    var new_contact = {
+         //        "First name": document.getElementById("firstName").value,
+         //        "Email": document.getElementById("email").value,
+         //        "Mobile": document.getElementById("phoneNumber").value,
+         //        // "company": {	
+         //        //     "Name": document.getElementById("companyName").value
+         //        // }
+         //    };
+         //    var identifier = document.getElementById("email").value; 
 		
-            fwcrm.identify(identifier, new_contact);
-            console.log("ran script");
+         //    fwcrm.identify(identifier, new_contact);
+         //    console.log("ran script");
+
+	    
 	}
     </script>
     
