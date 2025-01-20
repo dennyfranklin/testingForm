@@ -27,7 +27,7 @@ chat='true'>
             <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
 
             
-            <input type="submit">
+            <button type="submit", data-bind="click: submitForm, addIsProcessingClass: isProcessing, disabled: isProcessing">Subscribe</button>
         </form>
         <p id="thankYouMessage" style="display: none;">Thanks for submitting the form!</p>
     </div>
