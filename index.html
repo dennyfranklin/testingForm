@@ -18,7 +18,7 @@ chat='true'>
             <h2>Contact Us</h2>
             
             <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name">
+            <input type="text" id="firstName" placeholder="Enter your first name">
 
             <label for="email">Email Address <span class="required">*</span></label>
             <input type="email" id="email" name="email" placeholder="Enter your email" required>
@@ -53,9 +53,24 @@ chat='true'>
 		
          //    fwcrm.identify(identifier, new_contact);
          //    console.log("ran script");
+         //}
 
-	    
-	}
+	 document.addEventListener("DOMContentLoaded", function() {
+    const fields = [
+        { id: "firstName", name: "first_name" },
+        // { id: "form-field-input-a3d611ef-b210-4c6a-774d-5d74017a2727-comp-m8fog87k7-", name: "last_name" },
+        // { id: "form-field-input-267baf3d-b919-4e1d-2574-8a560e130bb5-comp-m8fog87k7-", name: "email" },
+        // { id: "form-field-input-05613dfa-fc5c-48a7-2fe5-0b3aed729704-comp-m8fog87k7-", name: "phone" },
+        // { id: "form-field-input-37274bb7-95a4-40a5-430b-fe940c1ffac1-comp-m8fog87k7-", name: "message" }
+    ];
+
+    fields.forEach(field => {
+        let input = document.getElementById(field.id);
+        if (input) {
+            input.setAttribute("name", field.name);
+        }
+    });
+});   
     </script>
     <script src='https://dennydavid1-703975880811311817.myfreshworks.com/crm/sales/web_forms/f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71/form.js' crossorigin='anonymous' id='fs_f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71'></script>
 </body>
