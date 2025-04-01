@@ -11,6 +11,37 @@ chat='true'>
 </script>
 
 </head>
+	<style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-btn {
+        background-color: #3498db;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 100px;
+        border: 1px solid #ddd;
+    }
+    .dropdown-content span {
+        display: block;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .dropdown-content span:hover {
+        background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
 <body>
 
     <div class="form-container">
@@ -47,6 +78,13 @@ chat='true'>
             document.getElementById('contactForm').style.display = 'none';
             document.getElementById('thankYouMessage').style.display = 'block';
         }
+
+	     document.querySelectorAll(".dropdown-content span").forEach(span => {
+        span.addEventListener("click", function() {
+            document.querySelector(".dropdown-btn").textContent = this.textContent;
+            document.querySelector("#selectedValue").value = this.getAttribute("data-name");
+        });
+        });
        
          // function identify_call() {
 		
