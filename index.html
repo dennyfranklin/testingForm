@@ -26,7 +26,12 @@ chat='true'>
             <label for="phoneNumber">Phone Number</label>
             <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
 
-            
+            <label for="testing-dropdown">Testing dropdown field:</label>
+            <select id="testing-dropdown" name="testing-dropdown">
+            <option value="test1">Test 1</option>
+            <option value="test2">Test 2</option>
+            </select>
+	    
             <button type="button", data-bind="click: submitForm, addIsProcessingClass: isProcessing, disabled: isProcessing">Subscribe</button>
 <!--         </form> -->
         <p id="thankYouMessage" style="display: none;">Thanks for submitting the form!</p>
