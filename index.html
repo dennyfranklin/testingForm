@@ -108,29 +108,29 @@ chat='true'>
          //    console.log("ran script");
          //}
 	
-	 document.addEventListener('DOMContentLoaded', () => {
-    const optionsDiv = document.querySelector('#customDropdown .options');
-    const spans = optionsDiv.querySelectorAll('.sNFNUVT');
+	  document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.getElementById('customDropdown');
+    const selected = dropdown.querySelector('.selected');
+    const options = dropdown.querySelector('.options');
+    const spans = options.querySelectorAll('span');
 
-    spans.forEach((span, index) => {
-      const input = document.createElement('input');
-      input.type = 'radio';
-      input.name = 'testingDropdown';
-      input.value = span.textContent.trim();
-      input.id = `input_option_${index + 1}`;
+    // Toggle dropdown
+    selected.addEventListener('click', () => {
+      options.style.display = options.style.display === 'block' ? 'none' : 'block';
+    });
 
-      const label = document.createElement('label');
-      label.setAttribute('for', input.id);
-      label.textContent = span.textContent.trim();
-
-      const container = document.createElement('div');
-      container.appendChild(input);
-      container.appendChild(label);
-
-      // Replace span with input+label
-      span.replaceWith(container);
+		  document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        options.style.display = 'none';
+      }
     });
   });
+
+	     const spans = document.querySelectorAll(".sNFNUVT");
+  spans.forEach((span, index) => {
+    span.setAttribute("name", `Test_${index + 1}`);
+  });
+	    
 	    
 	 document.addEventListener("DOMContentLoaded", function() {
          const fields = [
