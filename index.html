@@ -108,21 +108,29 @@ chat='true'>
          //    console.log("ran script");
          //}
 	
-	  const dropdown = document.getElementById('customDropdown');
-	  const selected = dropdown.querySelector('.selected');
-	  const options = dropdown.querySelector('.options');
-	  //const spans = options.querySelectorAll('span');
-	
-	  // Toggle dropdown
-	  selected.addEventListener('click', () => {
-	    options.style.display = options.style.display === 'block' ? 'none' : 'block';
-	  });
+	 document.addEventListener('DOMContentLoaded', () => {
+    const optionsDiv = document.querySelector('#customDropdown .options');
+    const spans = optionsDiv.querySelectorAll('.sNFNUVT');
 
-	  const spans = document.querySelectorAll(".sNFNUVT");
-	  spans.forEach((span, index) => {
-	    span.setAttribute("name", `drop_dowm_${index + 1}`);
-	  });  
-	    
+    spans.forEach((span, index) => {
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'testingDropdown';
+      input.value = span.textContent.trim();
+      input.id = `input_option_${index + 1}`;
+
+      const label = document.createElement('label');
+      label.setAttribute('for', input.id);
+      label.textContent = span.textContent.trim();
+
+      const container = document.createElement('div');
+      container.appendChild(input);
+      container.appendChild(label);
+
+      // Replace span with input+label
+      span.replaceWith(container);
+    });
+  });
 	    
 	 document.addEventListener("DOMContentLoaded", function() {
          const fields = [
@@ -141,11 +149,9 @@ chat='true'>
     });
 });   
 
-    document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target)) {
-        options.style.display = 'none';
-      }
-    });
+	    
+
+   
 	    
     </script>
 <!--     <script src='https://dennydavid1-703975880811311817.myfreshworks.com/crm/sales/web_forms/f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71/form.js' crossorigin='anonymous' id='fs_f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71'></script>
