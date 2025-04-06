@@ -130,7 +130,13 @@ chat='true'>
   spans.forEach((span, index) => {
     span.setAttribute("name", `Test_${index + 1}`);
   });
-	    
+
+	    spans.forEach((span) => {
+  span.addEventListener('click', () => {
+    selected.textContent = span.textContent; // update visible selection
+    options.style.display = 'none'; // hide dropdown
+  });
+});
 	    
 	 document.addEventListener("DOMContentLoaded", function() {
          const fields = [
