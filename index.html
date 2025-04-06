@@ -137,6 +137,26 @@ chat='true'>
     options.style.display = 'none'; // hide dropdown
   });
 });
+
+
+	     selected.addEventListener('click', () => {
+    options.style.display = options.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Hide dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      options.style.display = 'none';
+    }
+  });
+
+  // Handle span click → update selection
+  spans.forEach((span) => {
+    span.addEventListener('click', () => {
+      selected.textContent = span.textContent; // update selected value
+      options.style.display = 'none'; // hide dropdown
+    });
+  });
 	    
 	 document.addEventListener("DOMContentLoaded", function() {
          const fields = [
