@@ -108,7 +108,7 @@ chat='true'>
          //    console.log("ran script");
          //}
 	
-	  document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const dropdown = document.getElementById('customDropdown');
     const selected = dropdown.querySelector('.selected');
     const options = dropdown.querySelector('.options');
@@ -119,7 +119,7 @@ chat='true'>
       options.style.display = options.style.display === 'block' ? 'none' : 'block';
     });
 
-		  document.addEventListener('click', (e) => {
+      document.addEventListener('click', (e) => {
       if (!dropdown.contains(e.target)) {
         options.style.display = 'none';
       }
@@ -132,7 +132,7 @@ chat='true'>
   });
 
 	    spans.forEach((span) => {
-  span.addEventListener('click', () => {
+  spans.addEventListener('click', () => {
     selected.textContent = span.textContent; // update visible selection
     options.style.display = 'none'; // hide dropdown
   });
