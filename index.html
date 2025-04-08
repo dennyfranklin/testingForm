@@ -109,35 +109,25 @@ chat='true'>
          //}
 	
     document.addEventListener('DOMContentLoaded', () => {
-    const dropdown = document.getElementById('customDropdown');
-    const selected = dropdown.querySelector('.selected');
-    const options = dropdown.querySelector('.options');
-    //const spans = options.querySelectorAll('span');
+  const spans = document.querySelectorAll('.sNFNUVT');
 
-    // Toggle dropdown
-    selected.addEventListener('click', () => {
-      options.style.display = options.style.display === 'block' ? 'none' : 'block';
-    });
+  spans.forEach((span, index) => {
+    const input = document.createElement('input');
 
-      document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target)) {
-        options.style.display = 'none';
-      }
-    });
+    // Copy over text from span as value
+    input.value = span.textContent;
 
-	       spans.forEach((span) => {
-  span.addEventListener('click', () => {
-    selected.textContent = span.textContent; // update visible selection
-    options.style.display = 'none'; // hide dropdown
+    // Set desired type and name
+    input.type = 'text'; // or 'checkbox', 'radio', etc.
+    input.name = `Test_${index + 1}`;
+
+    // Copy all span's classes (optional)
+    input.className = span.className;
+
+    // Replace the span with the input in the DOM
+    span.replaceWith(input);
   });
 });
-	    
-  });
-
-	     const spans = document.querySelectorAll(".sNFNUVT");
-  spans.forEach((span, index) => {
-    span.setAttribute("name", `Test_${index + 1}`);
-  });
 
 	 
 
