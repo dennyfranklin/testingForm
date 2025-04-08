@@ -124,6 +124,14 @@ chat='true'>
         options.style.display = 'none';
       }
     });
+
+	       spans.forEach((span) => {
+  span.addEventListener('click', () => {
+    selected.textContent = span.textContent; // update visible selection
+    options.style.display = 'none'; // hide dropdown
+  });
+});
+	    
   });
 
 	     const spans = document.querySelectorAll(".sNFNUVT");
@@ -131,12 +139,7 @@ chat='true'>
     span.setAttribute("name", `Test_${index + 1}`);
   });
 
-	    spans.forEach((span) => {
-  span.addEventListener('click', () => {
-    selected.textContent = span.textContent; // update visible selection
-    options.style.display = 'none'; // hide dropdown
-  });
-});
+	 
 
 
 	 //     selected.addEventListener('click', () => {
