@@ -109,56 +109,35 @@ chat='true'>
          //}
 	
 document.addEventListener('DOMContentLoaded', () => {
-  const dropdown = document.getElementById('customDropdown');
-  const selected = dropdown.querySelector('.selected');
-  const options = dropdown.querySelector('.options');
+    const dropdown = document.getElementById('customDropdown');
+    const selected = dropdown.querySelector('.selected');
+    const options = dropdown.querySelector('.options');
+    //const spans = options.querySelectorAll('span');
 
-  // Replace spans with inputs
-  const spans = options.querySelectorAll('.sNFNUVT');
-
-  spans.forEach((span, index) => {
-    const input = document.createElement('input');
-
-    // Copy text from span as value
-    input.value = span.textContent;
-
-    // Set attributes
-    input.type = 'text'; // Or whatever type you need
-    input.name = `Test_${index + 1}`;
-    input.className = span.className;
-
-    // Make input look clickable like a dropdown option
-    input.style.cursor = 'pointer';
-    input.readOnly = true; // optional - makes it feel like a button
-
-    // Replace span with input
-    span.replaceWith(input);
-  });
-
-  const inputs = options.querySelectorAll('input');
-
-  // Show/hide dropdown on clicking "Select"
-  selected.addEventListener('click', () => {
-    options.style.display = options.style.display === 'block' ? 'none' : 'block';
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target)) {
-      options.style.display = 'none';
-    }
-  });
-
-  // Click on an input (option)
-  inputs.forEach((input) => {
-    input.addEventListener('click', () => {
-      selected.textContent = input.value;
-      options.style.display = 'none';
+    // Toggle dropdown
+    selected.addEventListener('click', () => {
+      options.style.display = options.style.display === 'block' ? 'none' : 'block';
     });
+
+      document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        options.style.display = 'none';
+      }
+    });
+
+	       spans.forEach((span) => {
+  span.addEventListener('click', () => {
+    selected.textContent = span.textContent; // update visible selection
+    options.style.display = 'none'; // hide dropdown
   });
 });
+	    
+  });
 
-
+  const spans = document.querySelectorAll(".sNFNUVT");
+  spans.forEach((span, index) => {
+  span.setAttribute("data-name", Test_${index + 1});
+  });
 
 
 	 //     selected.addEventListener('click', () => {
