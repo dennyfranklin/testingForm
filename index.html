@@ -108,27 +108,71 @@ chat='true'>
          //    console.log("ran script");
          //}
 	
-    document.addEventListener('DOMContentLoaded', () => {
-  const spans = document.querySelectorAll('.sNFNUVT');
+document.addEventListener('DOMContentLoaded', () => {
+  const dropdown = document.getElementById('customDropdown');
+  const selected = dropdown.querySelector('.selected');
+  const options = dropdown.querySelector('.options');
+
+  // Replace spans with inputs
+  const spans = options.querySelectorAll('.sNFNUVT');
 
   spans.forEach((span, index) => {
     const input = document.createElement('input');
 
-    // Copy over text from span as value
+    // Copy text from span as value
     input.value = span.textContent;
 
-    // Set desired type and name
-    input.type = 'text'; // or 'checkbox', 'radio', etc.
+    // Set attributes
+    input.type = 'text'; // Or whatever type you need
     input.name = `Test_${index + 1}`;
-
-    // Copy all span's classes (optional)
     input.className = span.className;
 
-    // Replace the span with the input in the DOM
+    // Make input look clickable like a dropdown option
+    input.style.cursor = 'pointer';
+    input.readOnly = true; // optional - makes it feel like a button
+
+    // Replace span with input
     span.replaceWith(input);
   });
-});
 
+  const inputs = options.querySelectorAll('input');
+
+  // Show/hide dropdown on clicking "Select"
+  selected.addEventListener('click', () => {
+    options.style.display = options.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      options.style.display = 'none';
+    }
+  });
+
+  // Click on an input (option)
+  inputs.forEach((input) => {
+    input.addEventListener('click', () => {
+      selected.textContent = input.value;
+      options.style.display = 'none';
+    });
+  });
+});
+✅ HTML You Have (No Change Required)
+Keep your original structure:
+
+html
+Copy
+Edit
+<label for="testingDropdown">Testing dropdown field:</label>
+<div class="dropdown" id="customDropdown">
+  <span class="selected">Select</span>
+  <div class="options">
+    <span class="sNFNUVT">Test 1</span>
+    <span class="sNFNUVT">Test 2</span>
+    <span class="sNFNUVT">Test 3</span>
+    <span class="sNFNUVT">Test 4</span>
+  </div>
+</div>
 	 
 
 
