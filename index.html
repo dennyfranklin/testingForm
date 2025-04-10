@@ -61,9 +61,9 @@ chat='true'>
             <label for="phoneNumber">Phone Number</label>
             <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
 
-      
+
+	 <label for="testingDropdown">Testing multiselect field</label>	 	
           <div class="dropdown" id="customDropdown">
-	   <label for="testingDropdown">Testing multiselect field</label>	  
           <span class="selected">Select</span>
           <div class="options">
            
@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (optionsDiv) {
     const select = document.createElement('select');
     select.name = "custom_dropdown"; // add a name if needed
+	  select.id = "testingDropdown";
 
     optionsDiv.querySelectorAll('span').forEach(span => {
       const option = document.createElement('option');
