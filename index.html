@@ -118,8 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (optionsDiv) {
     const select = document.createElement('select');
-    select.name = "testing_dropdown_field"; // add a name if needed
-	  select.id = "testing_dropdown_field";
+    select.name = "testing_dropdown_field";
+    select.id = "testing_dropdown_field"; // Must match the label's "for"
 
     optionsDiv.querySelectorAll('span').forEach(span => {
       const option = document.createElement('option');
