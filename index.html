@@ -135,11 +135,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	    
   });
 
-  const spans = document.querySelectorAll(".sNFNUVT");
-  spans.forEach((span, index) => {
- span.setAttribute("data-name", `Test_${index + 1}`);
-  span.setAttribute("data-type", `Type_${index + 1}`);
-  });
+ // Get the div with class 'options'
+const div = document.querySelector('.options');
+
+// Create a new <select> element
+const select = document.createElement('select');
+
+// Loop through all the span children and convert them to option elements
+div.querySelectorAll('span').forEach(span => {
+  const option = document.createElement('option');
+  option.value = span.textContent.trim(); // use text as the value
+  option.textContent = span.textContent.trim(); // use text as the visible text
+  select.appendChild(option);
+});
+
+// Replace the div with the new select element
+div.replaceWith(select);
 
 
 	 //     selected.addEventListener('click', () => {
