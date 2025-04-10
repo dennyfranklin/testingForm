@@ -110,47 +110,25 @@ chat='true'>
          //}
 	
 document.addEventListener('DOMContentLoaded', () => {
-    const dropdown = document.getElementById('customDropdown');
-    const selected = dropdown.querySelector('.selected');
-    const options = dropdown.querySelector('.options');
-    //const spans = options.querySelectorAll('span');
+  // Replace the custom dropdown with a <select> element
+  const dropdown = document.getElementById('customDropdown');
+  const optionsDiv = dropdown.querySelector('.options');
 
-    // Toggle dropdown
-    selected.addEventListener('click', () => {
-      options.style.display = options.style.display === 'block' ? 'none' : 'block';
+  if (optionsDiv) {
+    const select = document.createElement('select');
+    select.name = "custom_dropdown"; // add a name if needed
+
+    optionsDiv.querySelectorAll('span').forEach(span => {
+      const option = document.createElement('option');
+      option.value = span.textContent.trim();
+      option.textContent = span.textContent.trim();
+      select.appendChild(option);
     });
 
-      document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target)) {
-        options.style.display = 'none';
-      }
-    });
-
-// 	       spans.forEach((span) => {
-//   span.addEventListener('click', () => {
-//     selected.textContent = span.textContent; // update visible selection
-//     options.style.display = 'none'; // hide dropdown
-//   });
-// });
-	    
-  });
-
- // Get the div with class 'options'
-//const div = document.querySelector('.options');
-
-// Create a new <select> element
-const select = document.createElement('select');
-
-// Loop through all the span children and convert them to option elements
-options.querySelectorAll('span').forEach(span => {
-  const option = document.createElement('option');
-  option.value = span.textContent.trim(); // use text as the value
-  option.textContent = span.textContent.trim(); // use text as the visible text
-  select.appendChild(option);
+    // Replace the entire dropdown div with the <select>
+    dropdown.replaceWith(select);
+  }
 });
-
-// Replace the div with the new select element
-options.replaceWith(select);
 
 
 	 //     selected.addEventListener('click', () => {
