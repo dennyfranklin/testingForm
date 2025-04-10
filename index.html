@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const select = document.createElement('select');
 
 // Loop through all the span children and convert them to option elements
-div.querySelectorAll('span').forEach(span => {
+options.querySelectorAll('span').forEach(span => {
   const option = document.createElement('option');
   option.value = span.textContent.trim(); // use text as the value
   option.textContent = span.textContent.trim(); // use text as the visible text
