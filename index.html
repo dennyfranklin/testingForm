@@ -175,6 +175,41 @@ document.addEventListener('DOMContentLoaded', () => {
 });   
 
     </script>
+	<script>
+  async function loadWebFormScript() {
+    try {
+      const script = document.createElement('script');
+      script.src = 'https://dennydavid1-703975880811311817.myfreshworks.com/crm/sales/web_forms/f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71/form.js';
+      script.crossOrigin = 'anonymous';
+      script.id = 'fs_f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71';
+      script.async = true;
+
+      document.head.appendChild(script);
+
+      script.onload = () => {
+        console.log('Webform script loaded successfully.');
+        // If you want to invoke something after loading, you can do that here
+      };
+
+      script.onerror = (error) => {
+        console.error('Failed to load webform script:', error);
+      };
+    } catch (err) {
+      console.error('Unexpected error while loading webform:', err);
+    }
+  }
+
+  // Call it randomly (example usage)
+  document.addEventListener("DOMContentLoaded", () => {
+    const shouldLoad = Math.random() > 0.3; // Random condition
+    if (shouldLoad) {
+      loadWebFormScript();
+    } else {
+      console.log('Script loading skipped randomly.');
+    }
+  });
+</script>
+
 <!--    <script src='https://dennydavid1-703975880811311817.myfreshworks.com/crm/sales/web_forms/f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71/form.js' crossorigin='anonymous' id='fs_f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71'></script>
 	 -->
 </body> 
