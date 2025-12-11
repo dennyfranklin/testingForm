@@ -85,11 +85,48 @@ chat='true'>
 
 
 	    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            // document.getElementByclass('contactForm').style.display = 'none';
-            document.getElementById('thankYouMessage').style.display = 'block';
-        }
+        // function handleSubmit(event) {
+        //     event.preventDefault();
+        //     // document.getElementByclass('contactForm').style.display = 'none';
+        //     document.getElementById('thankYouMessage').style.display = 'block';
+        // }
+
+			document.addEventListener("DOMContentLoaded", function () {
+
+    // 1. Find the form using the class
+    const form = document.querySelector(".wpcf7-form");
+
+    if (!form) return; // if form not found, stop the script
+
+    // 2. Add an ID to the form
+    form.id = "newsletterForm";
+
+    // 3. Find the button inside the form
+    const button = form.querySelector("button, input[type='submit']");
+
+    if (!button) return; // if button does not exist, stop
+
+    // 4. Track custom event when button is clicked
+    button.addEventListener("click", function () {
+
+        // Get name + email fields inside the form
+        const emailField = form.querySelector("input[type='email']");
+        const nameField = form.querySelector("input[name='name'], input[type='text']");
+
+        const email = emailField ? emailField.value : "";
+        const name = nameField ? nameField.value : "";
+
+        // Call Freshmarketer custom event
+        FM.trackCustomEvent("newsletter signup", {
+            "emails": email,
+            "name": name,
+            "tag": "website newsletter sign up",
+            "timestamp": new Date().toISOString()
+        });
+
+    });
+});
+
 
 	     // document.querySelectorAll(".dropdown-content span").forEach(span => {
       //   span.addEventListener("click", function() {
@@ -215,6 +252,7 @@ chat='true'>
 	 -->
 </body> 
 </html>
+
 
 
 
