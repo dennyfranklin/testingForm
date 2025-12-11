@@ -78,7 +78,7 @@ chat='true'>
 	</div> -->
 	<!-- </div> -->
 	    
-            <button type="button", data-bind="click: submitForm, addIsProcessingClass: isProcessing, disabled: isProcessing">Subscribe</button>
+            <button type="submit", data-bind="click: submitForm, addIsProcessingClass: isProcessing, disabled: isProcessing">Subscribe</button>
         </form>
         <p id="thankYouMessage" style="display: none;">Thanks for submitting the form!</p>
     <!-- </div> -->
@@ -115,7 +115,8 @@ chat='true'>
 
         const email = emailField ? emailField.value : "";
         const name = nameField ? nameField.value : "";
-
+        console.log("Hello");
+		console.log(email);
         // Call Freshmarketer custom event
         FM.trackCustomEvent("newsletter signup", {
             "emails": email,
@@ -252,6 +253,7 @@ chat='true'>
 	 -->
 </body> 
 </html>
+
 
 
 
