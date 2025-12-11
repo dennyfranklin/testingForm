@@ -114,27 +114,27 @@ chat='true'>
          //    console.log("ran script");
          //}
 	
-document.addEventListener('DOMContentLoaded', () => {
-  // Replace the custom dropdown with a <select> element
-  const dropdown = document.getElementById('customDropdown');
-  const optionsDiv = dropdown.querySelector('.options');
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Replace the custom dropdown with a <select> element
+//   const dropdown = document.getElementById('customDropdown');
+//   const optionsDiv = dropdown.querySelector('.options');
 
-  if (optionsDiv) {
-    const select = document.createElement('select');
-    select.name = "testing_dropdown_field";
-    select.id = "testing_dropdown_field"; // Must match the label's "for"
+//   if (optionsDiv) {
+//     const select = document.createElement('select');
+//     select.name = "testing_dropdown_field";
+//     select.id = "testing_dropdown_field"; // Must match the label's "for"
 
-    optionsDiv.querySelectorAll('span').forEach(span => {
-      const option = document.createElement('option');
-      option.value = span.textContent.trim();
-      option.textContent = span.textContent.trim();
-      select.appendChild(option);
-    });
+//     optionsDiv.querySelectorAll('span').forEach(span => {
+//       const option = document.createElement('option');
+//       option.value = span.textContent.trim();
+//       option.textContent = span.textContent.trim();
+//       select.appendChild(option);
+//     });
 
-    // Replace the entire dropdown div with the <select>
-    dropdown.replaceWith(select);
-  }
-});
+//     // Replace the entire dropdown div with the <select>
+//     dropdown.replaceWith(select);
+//   }
+// });
 
 
 	 //     selected.addEventListener('click', () => {
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });   
 
     </script>
-	<script>
+	<!-- <script>
   async function loadWebFormScript() {
     try {
       const script = document.createElement('script');
@@ -209,11 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Script loading skipped randomly.');
     }
   });
-</script>
+</script> -->
 
 <!--    <script src='https://dennydavid1-703975880811311817.myfreshworks.com/crm/sales/web_forms/f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71/form.js' crossorigin='anonymous' id='fs_f5ad71eb05e77968de8081408e1fb5a3007883aafdcfe0a521ba445935a01a71'></script>
 	 -->
 </body> 
 </html>
+
 
 
