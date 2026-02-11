@@ -217,40 +217,23 @@ chat='true'>
 <script src='https://dennydavid1-703975880811311817.myfreshworks.com/crm/sales/web_forms/ab75294bfa1c3437cdcb09a045a912e83c9bd2b1dcd2756bf25d4caafa0e864a/form.js' crossorigin='anonymous' id='fs_ab75294bfa1c3437cdcb09a045a912e83c9bd2b1dcd2756bf25d4caafa0e864a'></script>
 
 	<script>
- var WebFormEvent = {
-	
-  beforeSubmit: function () {
-	   console.log("Hello1");
-   // Define mapping of localStorage keys to form field names
-   const utmMapping = {
-    "_fm_oc": "contact[first_campaign]",
-    "_fm_om": "contact[first_medium]",
-    "_fm_os": "contact[first_source]",
-    "_fm_rc": "contact[latest_campaign]",
-    "_fm_rm": "contact[latest_medium]",
-    "_fm_rs": "contact[latest_source]"
-   };
-   console.log("Hello2");
-   // Function to get UTM values from localStorage
-   function getLocalStorageValue(key) {
-    return window.localStorage.getItem(key) || "";
-   }
+  var WebFormEvent = {
+    beforeSubmit: function () {
+      // Function to get UTM parameters from the URL
+      function getUTMParam(paramName) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(paramName) || "";
+      }
 
-   // Append hidden fields dynamically
-   for (const [storageKey, formFieldName] of Object.entries(utmMapping)) {
-    const value = getLocalStorageValue(storageKey);
-    if (value) {
-     WebForm.$('<input>').attr({
-      type: 'hidden',
-      name: formFieldName,
-      value: value
-     }).appendTo('.fs-webform-container form');
-    }
-   }
-  }
- };
-
-    </script>
+      // Append hidden fields with UTM parameters
+      WebForm.$('<input>').attr({
+        type: 'hidden',
+        name: 'contact[custom_field][cf_lead_source]',
+        value: getUTMParam('utm_source')
+      }).appendTo('.fs-webform-container form');
+    }
+  }
+</script>
 	<!-- <script>
   async function loadWebFormScript() {
     try {
@@ -290,6 +273,7 @@ chat='true'>
 	 -->
 </body> 
 </html>
+
 
 
 
